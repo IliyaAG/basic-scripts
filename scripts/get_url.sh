@@ -1,7 +1,7 @@
 #!/bin/bash
 
 HOST=$1
-PATH=$2
+PATH=${2:-/}
 PORT=80
 
 exec 3<>/dev/tcp/$HOST/$PORT
