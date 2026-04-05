@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-#IP=$1
-#PORT=$2
-#echo "" > /dev/tcp/$IP/$PORT
 usage() {
     echo "Usage: $0 [-z | -d] -i <ip> -p <port>"
     echo
@@ -40,17 +37,17 @@ if [[ -z "$IP" || -z "$PORT" ]]; then
 fi
 
 if [[ "METHOD" == "nc" ]]; then
-    echo "testing"
+    echo "Using netcat method..."
     nc -z -w 3 "$IP" "$PORT"
     result=$?
 elif [[ "METHOD" == "devtcp" ]]; then
-    echo "blahbla"
+    echo "Using /dev/tcp method..."
     timeout 3 bash -c "</dev/tcp/$IP/$PORT" &>/dev/null
     result=$?
 fi
 
 if [[ $result -eq 0 ]]; then
-    echo "opem"
+    echo -e "\033[0;32m port $PORT is open \033[0m"
 else
-    echo "close"
+    echo -e "\033[0;31m port $PORT is close \033[0m"
 fi
