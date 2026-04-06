@@ -1,5 +1,8 @@
 #!/bin/bash
 
+print_usage() {
+    echo "usage:"
+}
 HOST=$1
 PATH=${2:-/}
 PORT=80
