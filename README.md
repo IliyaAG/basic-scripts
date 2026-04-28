@@ -12,3 +12,5 @@ I'm going to create a collection of them so I don't have to write them from scra
 
 ## List of contents:
   - [functions](functions)
+  - [scripts](scripts)
+  - [templates](templates)
